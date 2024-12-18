@@ -11,6 +11,9 @@ type Word struct {
 	Word        string    `json:"word"`
 	Translation string    `json:"translation"`
 	Difficulty  int       `json:"difficulty"`
-	Examples    []string  `json:"examples"`
-	CreatedAt   time.Time
+	/* Examples    []string  `json:"examples"`
+	 * Currently disabled because I can't find a free API that
+	 * returns a list or at least a random example.
+	 */
+	CreatedAt time.Time
 }

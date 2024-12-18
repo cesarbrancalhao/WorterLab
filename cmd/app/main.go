@@ -1,13 +1,16 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/cesarbrancalhao/WorterLab/api/router"
+	"github.com/cesarbrancalhao/WorterLab/internal/config"
+	"github.com/cesarbrancalhao/WorterLab/internal/db"
+)
+
+func init() {
+	config.LoadEnv()
+	db.ConnectDB()
+}
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run(":8080")
+	router.Start()
 }

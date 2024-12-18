@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: pg-1
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: worterlab
+      POSTGRES_DB: worterlab
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
