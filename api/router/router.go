@@ -3,6 +3,7 @@ package router
 import (
 	"os"
 
+	"github.com/cesarbrancalhao/WorterLab/api/middleware"
 	"github.com/cesarbrancalhao/WorterLab/api/router/routes"
 	"github.com/gin-gonic/gin"
 )
@@ -23,7 +24,8 @@ func Start() {
 	host, port := GetRouterConfig()
 
 	r := gin.New()
-	// r.Use(middleware.Cors) //todo
+	r.Use(middleware.CORS())
+	r.Use(middleware.Auth())
 
 	routes.Route(r)
 	r.Run(host + ":" + port)
